@@ -1,0 +1,107 @@
+/* Font and reset styles */
+body {
+    font-family: 'Kanit', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #fff;
+    line-height: 1.8;
+    background-image: url("../image/foretlumdown.jpg");
+}
+
+#top {
+    text-align: center;
+    color: white;
+}
+
+h1, h2 {
+    margin: 0;
+    text-align: center;
+    color: #fff;
+}
+
+header .hero {
+    text-align: center;
+    padding: 5px;
+    background-color: #fffefe;
+    opacity: 0.4;
+}
+
+/* Layout styles */
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 50px;
+    background-color: #999999;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+section img {
+    max-width: 300;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+/* Headings */
+h2 {
+    color: #ffff;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    
+    color: #fff;
+    font-size: 0.9em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header .hero h1 {
+        font-size: 2em;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    section img {
+        
+        margin-top: 15px;
+    }
+}
+
+
+header a {
+    text-decoration: none;
+    color: black;
+    margin-right: 20px;
+    font-size: 16px;
+    position: relative;
+}
+
+header a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: #AA9785FF;
+    transition: width 0.3s ease;
+}
+
+header a:hover::after {
+    left: 0;
+    right: auto;
+    width: 100%;
+}

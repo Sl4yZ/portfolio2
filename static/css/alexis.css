@@ -1,0 +1,171 @@
+header a {
+    display: inline-block;
+    margin-left: 3%;
+    margin-top: 1%;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    position: relative;
+    gap: 20px;
+}
+
+header a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: #AA9785FF;
+    transition: width 0.3s ease;
+}
+
+header a:hover::after {
+    left: 0;
+    right: auto;
+    width: 100%;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #333;
+    font-family: "Kanit", sans-serif;
+    height: 100vh;
+    background: url('../image/alexis/foret2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left center;
+    position: relative;
+    overflow-x: hidden;
+    transition: background-position 1s ease-in-out;
+}
+
+
+
+.container-first {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 110px;
+    color: #f1f1f1;
+    font-family: "Kanit", sans-serif;
+}
+h1 span {
+    position: relative;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #f1f1f1;
+    font-family: "Kanit", sans-serif;
+}
+h3 span {
+    position: relative;
+}
+
+
+
+.container-btns {
+    position: relative;
+    top: 50px;
+}
+.btn-first {
+    border: 2px solid #f1f1f1;
+    outline: none;
+    background: transparent;
+    font-size: 30px;
+    padding: 20px;
+    width: 300px;
+    color: #f1f1f1;
+    cursor: pointer;
+}
+.btn-first:nth-child(1){
+    margin-right: 30px;
+}
+.btn-first:hover {
+    transition: all 0.3s ease-in-out;
+    background: #f1f1f1;
+    color: #333;
+}
+.lignes {
+    position: absolute;
+    top: 7%;
+    left: 3%;
+}
+.l1 {
+    width: 250px;
+    height: 3px;
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+.l2 {
+    width: 140px;
+    height: 3px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    position: relative;
+    top: 20px;
+}
+
+.logo {
+    position: absolute;
+    right: 2.9%;
+    top: 4%;
+    width: 80px;
+    height: auto;
+}
+.medias {
+    list-style-type: none;
+    position: absolute;
+    right: 3.3%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.bulle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    background: #f1f1f1;
+    cursor: pointer;
+    position: relative;
+}
+
+.logo-medias {
+    width: 40px;
+    height: 40px;
+}
+
+.h3-wrapper h3 {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    margin-top: 10%;
+}
+
+.h3-wrapper h3.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
