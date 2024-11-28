@@ -1,3 +1,22 @@
+* {
+    cursor: url(../image/frame_0_sus.png), auto;
+    -webkit-animation: cursor 250ms infinite;
+    animation: cursor 250ms infinite;
+}
+
+@-webkit-keyframes cursor {
+    0% {cursor: url(../image/frame_0_sus.png), auto;}
+    100% {cursor: url(../image/frame_1_sus.png), auto;}
+}
+
+@keyframes cursor {
+    0% {cursor: url(../image/frame_0_sus.png), auto;}
+    100% {cursor: url(../image/frame_1_sus.png), auto;}
+}
+
+html {
+    scroll-behavior: smooth;
+  }
 
 body {
     font-family: 'Kanit', sans-serif;
@@ -16,6 +35,7 @@ body {
     position: relative;
     overflow-x: hidden;
 }
+
 
 
 h1 {
@@ -125,7 +145,6 @@ footer {
 }
 
 
-
 header a {
     display: inline-block;
     margin-left: 3%;
@@ -172,3 +191,7 @@ header a:hover::after {
     top: 20px;
 }
 
+.scroll {
+    margin-left: 94%;
+
+}

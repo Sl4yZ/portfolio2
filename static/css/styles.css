@@ -30,6 +30,19 @@ header a:hover::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    cursor: url(../image/frame_0_sus.png), auto;
+    -webkit-animation: cursor 250ms infinite;
+    animation: cursor 250ms infinite;
+}
+
+@-webkit-keyframes cursor {
+    0% {cursor: url(../image/frame_0_sus.png), auto;}
+    100% {cursor: url(../image/frame_1_sus.png), auto;}
+}
+
+@keyframes cursor {
+    0% {cursor: url(../image/frame_0_sus.png), auto;}
+    100% {cursor: url(../image/frame_1_sus.png), auto;}
 }
 
 body {
@@ -87,31 +100,6 @@ h1 span {
     height: 80px;
     cursor: pointer;
 }
-.medias {
-    list-style-type: none;
-    position: absolute;
-    right: 3.3%;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.bulle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 1px solid #f1f1f1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-    background: #f1f1f1;
-    cursor: pointer;
-    position: relative;
-}
-
 .logo-medias {
     width: 40px;
     height: 40px;
@@ -124,82 +112,86 @@ h1 span {
   box-sizing: border-box;
 }
 
-
 .container {
   width: 100%;
   display: flex;
   justify-content: center;
   height: 500px;
-  margin-top: 80%;
+  margin-top: 35%;
+  padding-bottom: 5%;
   gap: 10px;
+}
 
-  > div {
-    flex: 0 0 120px;
-    border-radius: 0.5rem;
-    transition: 0.5s ease-in-out;
-    cursor: pointer;
-    box-shadow: 1px 5px 15px #1e0e3e;
+.container > div {
+  flex: 0 0 120px;
+  border-radius: 0.5rem;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  box-shadow: 1px 5px 15px #1e0e3e;
+  position: relative;
+  overflow: hidden;
+
+  &:nth-of-type(1) {
+    background: url("../image/malo/Malo.jpg") no-repeat center / cover;
+  }
+  &:nth-of-type(2) {
+    background: url("../image/IDRI Nahel -2.jpg") no-repeat center / cover;
+  }
+  &:nth-of-type(3) {
+    background: url("../image/CHUNNE-DAMIDOT Matthias -1.jpg") no-repeat center / cover;
+  }
+  &:nth-of-type(4) {
+    background: url("../image/ugo/ANGLES-DESRUMAUX Ugo -2.jpg") no-repeat center / cover;
+  }
+  &:nth-of-type(5) {
+    background: url("../image/alexis.jpg") no-repeat center / cover;
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
     position: relative;
-    overflow: hidden;
+    text-decoration: none;
+  }
 
-    &:nth-of-type(1) {
-      background: url("../image/Malo.jpg")
-        no-repeat 50% / cover;
-    }
-    &:nth-of-type(2) {
-      background: url("../image/IDRI\ Nahel\ -2.jpg")
-        no-repeat 50% / cover;
-    }
-    &:nth-of-type(3) {
-      background: url("../image/CHUNNE-DAMIDOT\ Matthias\ -1.jpg")
-        no-repeat 50% / cover;
-    }
-    &:nth-of-type(4) {
-      background: url("../image/ANGLES-DESRUMAUX\ Ugo\ -2.jpg")
-        no-repeat 50% / cover;
-    }
-    &:nth-of-type(5) {
-      background: url("../image/alexis/ppalexis.png")
-        no-repeat 50% / cover;
-    }
+  .content {
+    font-size: 1.5rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    opacity: 0;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+    background: rgb(2, 2, 46);
+    background: linear-gradient(
+      0deg,
+      rgba(2, 2, 46, 0.675) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: translateY(100%);
+    transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+    visibility: hidden;
+  }
 
-    .content {
-      font-size: 1.5rem;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      padding: 15px;
-      opacity: 0;
-      flex-direction: column;
-      height: 100%;
-      justify-content: flex-end;
-      background: rgb(2, 2, 46);
-      background: linear-gradient(
-        0deg,
-        rgba(2, 2, 46, 0.6755077030812324) 0%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      transform: translatey(100%);
-      transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
-      visibility: hidden;
+  .content span {
+    display: block;
+    margin-top: 5px;
+    font-size: 1.2rem;
+  }
 
-      span {
-        display: block;
-        margin-top: 5px;
-        font-size: 1.2rem;
-      }
-    }
+  &:hover {
+    flex: 0 0 250px;
+    box-shadow: 1px 3px 15px #7645d8;
+    transform: translateY(-30px);
+  }
 
-    &:hover {
-      flex: 0 0 250px;
-      box-shadow: 1px 3px 15px #7645d8;
-      transform: translatey(-30px);
-    }
-
-    &:hover .content {
-      opacity: 1;
-      transform: translatey(0%);
-      visibility: visible;
-    }
+  &:hover .content {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
   }
 }
+

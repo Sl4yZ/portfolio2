@@ -1,187 +1,269 @@
-body {
-    background: #333;
-    font-family: "Kanit", sans-serif;
-    height: 100vh;
-    background: url('../image/foretlumdown.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    overflow-x: hidden;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    color: black;
+* {
+  cursor: url(../image/frame_0_sus.png), auto;
+  -webkit-animation: cursor 250ms infinite;
+  animation: cursor 250ms infinite;
 }
-h1 {
-    color: white; 
-    font-size: 50px;
 
+@-webkit-keyframes cursor {
+  0% {cursor: url(../image/frame_0_sus.png), auto;}
+  100% {cursor: url(../image/frame_1_sus.png), auto;}
+}
+
+@keyframes cursor {
+  0% {cursor: url(../image/frame_0_sus.png), auto;}
+  100% {cursor: url(../image/frame_1_sus.png), auto;}
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Kanit', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background: #333;
+  background: url('../image/foretlumdown.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-family: "Kanit", sans-serif;
+  font-size: 5vw; 
+  color: #f1f1f1;
+  margin-left: 3%;
+  margin-top: 2%;
+}
+
+h1 span {
+  position: relative;
+}
+
+h3 {
+  font-family: "Kanit", sans-serif;
+  color: white;
+  margin-left: 4%;
+  position: relative;
+  font-size: 300%;
+}
+
+h3 span {
+  position: relative;
 }
 
 p {
-    color: white; 
+  color: white;
+  position: relative;
+  font-size: 170%;
 }
 
-/* pour les paragraphes  */
-section {
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 15px;  
-    padding: 15px; 
-    margin: 20px auto; 
-    width: 80%;  
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);  
-    line-height: 1.6; 
+.lignes {
+  position: absolute;
+  top: 7%;
+  left: 3%;
 }
 
-/*  Pour les liens entres les pages des mates */
+.l1 {
+  width: 250px;
+  height: 3px;
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.l2 {
+  width: 140px;
+  height: 3px;
+  background: #f1f1f1;
+  border-radius: 5px;
+  position: relative;
+  top: 20px;
+}
+
+.logo {
+  position: absolute;
+  right: 2.9%;
+  top: 4%;
+  width: 10vw;
+  height: 10vw;
+  max-width: 80px;
+  max-height: 80px;
+  cursor: pointer;
+}
+
+.logo-medias {
+  width: 40px;
+  height: 40px;
+}
 
 header a {
-    text-decoration: none;
-    color: white;
-    margin-right: 20px;
-    font-size: 16px;
-    position: relative;
+  display: inline-block;
+  margin-left: 3%;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  position: relative;
 }
 
 header a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 5px;
-    background-color: #AA9785FF;
-    transition: width 0.3s ease;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #AA9785FF;
+  transition: width 0.3s ease;
 }
 
 header a:hover::after {
-    left: 0;
-    right: auto;
-    width: 100%;
+  width: 100%;
 }
 
-/* Pour le slider */
+footer {
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+  font-size: 0.9em;
+}
 
-*, ::before, ::after {
-    box-sizing: border-box;
-    border-radius: 15px;
-    margin: 0;
-    padding: 0;
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+.container-first {
+  position: relative;
+  top: 20%;
+  left: 5%;
+}
+
+
+@media (max-width: 768px) {
+
+  h1 {
+      font-size: 8vw; 
+      margin-left: 5%; 
   }
-  
-  .slider-1 {
-    max-width: 90%;
-    margin: 10% auto;
-    overflow: hidden;
-    border: 1px solid #f1f1f1;
-    position: center;
-  
+
+  .logo {
+      width: 15vw;
+      height: 15vw;
+      max-width: 60px;
+      max-height: 60px;
   }
-  .slider-1 .slider {
-    animation: slider-1 20s infinite ease-in-out;
-    display: flex;
-  
-    /* Si on veut faire glisser vers la droite */
-    /* Il faut aussi changer l'animation(transform) en valeurs positives */
-    /* flex-direction: row-reverse; */
+
+  header {
+      flex-direction: column; 
+      align-items: center; 
   }
-  .slider-1 p {
-    background: black;
-    flex-shrink: 0;
-    padding: 72px 0;
-    width: 100%;
-    text-align: center;
-    font-size: 15px;
-    color: #f1f1f1;
+
+  header a {
+      font-size: 14px; 
+      margin-left: 0; 
+      margin-top: 5px; 
   }
-  
-  
-  /* 
-     5% par transition, nombre choisi arbitrairement.
-  
-     reste divisé par nb de pauses
-     80(%) / 4 = 20(%) par pause
-  */
-  
-  @keyframes slider-1 {
-    0%,
-    20% {
+
+  .lignes {
+      width: 100%;
+      left: 5%;
+      top: 10%;
+  }
+  .l1 {
+      width: 200px;
+  }
+  .l2 {
+      width: 120px;
+      top: 25px;
+  }
+}
+
+
+
+.slider-1 {
+  margin-top: 10%; 
+  overflow: hidden;
+  position: relative;
+  padding: 80% auto;
+}
+
+.slider-1 .slider {
+  animation: slider-1 40s infinite ease-in-out;
+  display: flex;
+}
+
+.slider-1 p {
+  background: transparent;
+  flex-shrink: 0;
+  padding: 100px 0;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+}
+
+@keyframes slider-1 {
+  0%, 20% {
       transform: translateX(0);
-    }
-    25%,
-    45% {
+  }
+  25%, 45% {
       transform: translateX(-100%);
-    }
-    50%,
-    70% {
+  }
+  50%, 70% {
       transform: translateX(-200%);
-    }
-    75%,
-    95% {
+  }
+  75%, 95% {
       transform: translateX(-300%);
-    }
-    100% {
+  }
+  100% {
       transform: translateX(-400%);
-    }
-  } 
-  
-  /* Verticale */
-  
-  .slider-2 {
-    max-width: 600px;
-    height: 200px;
-    margin: 100px auto;
-    overflow: hidden;
-    border: 1px solid #f1f1f1;
-  }
-  .slider-2 .slider {
-    height: 100%;
-    animation: slider-2 12s infinite ease-in-out;
-    
-    /* Pour inverser l'animation */
-    /* display: flex; 
-    flex-direction: column-reverse; */
-  }
-  .slider-2 p {
-    flex-shrink: 0;
-    padding: 72px 0;
-    width: 100%;
-    text-align: center;
-    font-size: 15px;
-    color: #f1f1f1;
-  }
-  @keyframes slider-2 {
-    0%,
-    20% {
-      transform: translateY(0);
-    }
-    25%,
-    45% {
-      transform: translateY(-100%);
-    }
-    50%,
-    70% {
-      transform: translateY(-200%);
-    }
-    75%,
-    95% {
-      transform: translateY(-300%);
-    }
-    100% {
-      transform: translateY(-400%);
-    }
   }
 
-  footer {
-    text-align: center;
-    padding: 5px;
-    background-color: #abbaba00;
-    color: white;
-    
-  }
-
-  .lien-linkedin {
-    text-decoration: none;
-    color: white; 
 }
 
+/* Vertical Slider Styles */
+
+.slider-2 {
+  max-width: 600px;
+  height: 200px;
+  margin: 100px auto;
+  overflow: hidden;
+}
+
+.slider-2 .slider {
+  height: 100%;
+  animation: slider-2 12s infinite ease-in-out;
+}
+
+.slider-2 p {
+  flex-shrink: 0;
+  padding: 72px 0;
+  width: 100%;
+  text-align: center;
+  font-size: 170%;
+  color: #f1f1f1;
+}
+
+@keyframes slider-2 {
+  0%, 20% {
+      transform: translateY(0);
+  }
+  25%, 45% {
+      transform: translateY(-100%);
+  }
+  50%, 70% {
+      transform: translateY(-200%);
+  }
+  75%, 95% {
+      transform: translateY(-300%);
+  }
+  100% {
+      transform: translateY(-400%);
+  }
+}
