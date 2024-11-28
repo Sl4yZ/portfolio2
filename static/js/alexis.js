@@ -17,7 +17,6 @@ let canScroll = true;
 let startY = 0;
 let endY = 0;
 
-// Ajout des événements au chargement de la page
 window.addEventListener('load', () => {
     const TL = gsap.timeline({paused: true});
 
@@ -61,7 +60,6 @@ function handleScroll(direction) {
     if (currentIndex < 0) currentIndex = 0;
     if (currentIndex >= h3Elements.length) currentIndex = h3Elements.length - 1;
 
-    // Ajout des comportements pour chaque index
     if (currentIndex === 1) {
         document.body.style.backgroundPosition = 'right center';
 
@@ -121,42 +119,3 @@ function showScrollTimer() {
         timerOverlay.remove();
     }, 1000);
 }
-
-/* Mode téléphone et navigation */
-
-/* Bouton de mode téléphone */
-const toggleModeButton = document.createElement('button');
-toggleModeButton.id = 'toggleMode';
-toggleModeButton.textContent = 'Mode téléphone';
-document.body.appendChild(toggleModeButton);
-
-// Barre de navigation pour le mode téléphone
-const phoneNavigation = document.createElement('div');
-phoneNavigation.id = 'phoneNavigation';
-phoneNavigation.classList.add('hidden');
-phoneNavigation.innerHTML = `
-    <button class="prevBtn">Précédent</button>
-    <button class="nextBtn">Suivant</button>
-`;
-document.body.appendChild(phoneNavigation);
-
-// Fonction pour basculer entre le mode téléphone et l'interface classique
-toggleModeButton.addEventListener('click', () => {
-    const isHidden = phoneNavigation.classList.contains('hidden');
-    if (isHidden) {
-        phoneNavigation.classList.remove('hidden');
-        toggleModeButton.textContent = 'Retour';
-    } else {
-        phoneNavigation.classList.add('hidden');
-        toggleModeButton.textContent = 'Mode téléphone';
-    }
-});
-
-// Actions des boutons Précédent et Suivant dans le mode téléphone
-phoneNavigation.querySelector('.prevBtn').addEventListener('click', () => {
-    handleScroll(-1);
-});
-
-phoneNavigation.querySelector('.nextBtn').addEventListener('click', () => {
-    handleScroll(1);
-});
