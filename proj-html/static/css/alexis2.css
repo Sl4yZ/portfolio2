@@ -1,0 +1,119 @@
+body:before, body:after {
+    content: "";
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to bottom, #fff 10%, rgba(255, 255, 255, 0));
+}
+body:after {
+    top: auto;
+    bottom: 0;
+    background: linear-gradient(to top, #fff 50%, rgba(255, 255, 255, 0));
+}
+.scroll {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    font-family: Roboto, sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+}
+.scroll span {
+    display: block;
+}
+.scroll svg {
+    margin-top: 10px;
+    width: 18px;
+    height: 18px;
+    animation: scroll 0.95s ease-in-out alternate infinite;
+    fill: none;
+    stroke: #000;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-width: 1;
+}
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 40%;
+    opacity: 0;
+    margin: -19px auto;
+    margin-left: 70%;
+    transition: transform 1s cubic-bezier(0.14, 0.15, 0.13, 0.99);
+}
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+   }
+    100% {
+        transform: translateY(10px);
+   }
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    z-index: 1000;
+    font-family: "Kanit", sans-serif;
+}
+
+.styled-button {
+    background: linear-gradient(45deg, #ff7eb3, #ff758c); 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    outline: none;
+    text-decoration: none;
+}
+
+.styled-button:hover {
+    background: linear-gradient(45deg, #ff758c, #ff7eb3);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05); 
+}
+
+.side-image {
+    position: absolute;
+    top: calc(70vh * var(--index)); 
+    left: 20%;
+    width: 350px;
+    height: auto;
+    opacity: 0;  
+    transform: translateY(50px);  
+    z-index: 5;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .side-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    filter: brightness(1); 
+  }
+  
+
+.side-image:first-child {
+    opacity: 0; 
+    visibility: hidden; 
+}
