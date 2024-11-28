@@ -13,6 +13,11 @@ let currentIndex = 0;
 let scrollCount = 0;
 let canScroll = true;
 
+// Variables pour le défilement tactile
+let startY = 0;
+let endY = 0;
+
+// Ajout des événements au chargement de la page
 window.addEventListener('load', () => {
     const TL = gsap.timeline({paused: true});
 
@@ -29,11 +34,24 @@ window.addEventListener('load', () => {
     TL.play();
 });
 
-window.addEventListener('wheel', (event) => {
+// Gestion du défilement avec la molette
+window.addEventListener('wheel', (event) => handleScroll(event.deltaY > 0 ? 1 : -1));
+
+// Gestion du défilement tactile
+window.addEventListener('touchstart', (event) => {
+    startY = event.touches[0].clientY;
+});
+
+window.addEventListener('touchmove', (event) => {
+    endY = event.touches[0].clientY;
+    const direction = startY - endY > 0 ? 1 : -1;
+    handleScroll(direction);
+});
+
+// Fonction de gestion du défilement
+function handleScroll(direction) {
     if (!canScroll) return;
     canScroll = false;
-
-    const direction = event.deltaY > 0 ? 1 : -1;
 
     h3Elements[currentIndex]?.classList.remove('visible');
 
@@ -43,6 +61,7 @@ window.addEventListener('wheel', (event) => {
     if (currentIndex < 0) currentIndex = 0;
     if (currentIndex >= h3Elements.length) currentIndex = h3Elements.length - 1;
 
+    // Ajout des comportements pour chaque index
     if (currentIndex === 1) {
         document.body.style.backgroundPosition = 'right center';
 
@@ -80,8 +99,9 @@ window.addEventListener('wheel', (event) => {
     }, 1000);
 
     showScrollTimer();
-});
+}
 
+// Fonction d'affichage du timer de défilement
 function showScrollTimer() {
     const timerOverlay = document.createElement('div');
     timerOverlay.textContent = 'Scrolling...';
@@ -101,3 +121,42 @@ function showScrollTimer() {
         timerOverlay.remove();
     }, 1000);
 }
+
+/* Mode téléphone et navigation */
+
+/* Bouton de mode téléphone */
+const toggleModeButton = document.createElement('button');
+toggleModeButton.id = 'toggleMode';
+toggleModeButton.textContent = 'Mode téléphone';
+document.body.appendChild(toggleModeButton);
+
+// Barre de navigation pour le mode téléphone
+const phoneNavigation = document.createElement('div');
+phoneNavigation.id = 'phoneNavigation';
+phoneNavigation.classList.add('hidden');
+phoneNavigation.innerHTML = `
+    <button class="prevBtn">Précédent</button>
+    <button class="nextBtn">Suivant</button>
+`;
+document.body.appendChild(phoneNavigation);
+
+// Fonction pour basculer entre le mode téléphone et l'interface classique
+toggleModeButton.addEventListener('click', () => {
+    const isHidden = phoneNavigation.classList.contains('hidden');
+    if (isHidden) {
+        phoneNavigation.classList.remove('hidden');
+        toggleModeButton.textContent = 'Retour';
+    } else {
+        phoneNavigation.classList.add('hidden');
+        toggleModeButton.textContent = 'Mode téléphone';
+    }
+});
+
+// Actions des boutons Précédent et Suivant dans le mode téléphone
+phoneNavigation.querySelector('.prevBtn').addEventListener('click', () => {
+    handleScroll(-1);
+});
+
+phoneNavigation.querySelector('.nextBtn').addEventListener('click', () => {
+    handleScroll(1);
+});

@@ -1,3 +1,4 @@
+/* Styles de base existants */
 header a {
     display: inline-block;
     margin-left: 3%;
@@ -231,6 +232,51 @@ p span {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
+#toggleMode {
+    position: fixed;
+    bottom: 10%;
+    right: 10%;
+    background-color: #f1f1f1;
+    color: #333;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#phoneNavigation {
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+}
+
+#phoneNavigation.hidden {
+    display: none;
+}
+
+#phoneNavigation button {
+    background-color: #333;
+    color: #f1f1f1;
+    border: 2px solid #f1f1f1;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#phoneNavigation button:hover {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
 @media (max-width: 1200px) {
     h1 {
         font-size: 80px;
@@ -266,6 +312,9 @@ p span {
     }
     .l1, .l2 {
         width: 100px;
+    }
+    #toggleMode {
+        bottom: 15%;
     }
 }
 
